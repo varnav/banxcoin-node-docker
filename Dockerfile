@@ -21,7 +21,7 @@ RUN apt-get update \
 && tar xf banxcoin-daemon-linux.tar.gz \
 && tar xf banxcoin-qt-linux.tar.gz \
 && mv banxcoind banxcoin-cli banxcoin-tx /usr/bin/ \
-&& useradd --shell /bin/bash bnbchaind \
+&& useradd --shell /bin/bash banxcoind
 
 COPY ./bin/*.sh /usr/local/bin/
 
