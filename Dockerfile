@@ -15,8 +15,9 @@ RUN apt-get update \
 && apt-get update \
 && apt-get -y --no-install-recommends install libdb4.8-dev libdb4.8++-dev \
 && apt-get clean \
-&& rm -rf /var/lib/apt/lists/* \
-&& wget -q "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-daemon-linux.tar.gz" -O banxcoin-daemon-linux.tar.gz \
+&& rm -rf /var/lib/apt/lists/*
+
+RUN wget -q "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-daemon-linux.tar.gz" -O banxcoin-daemon-linux.tar.gz \
 && wget -q "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-qt-linux.tar.gz" -O banxcoin-qt-linux.tar.gz \
 && tar xf banxcoin-daemon-linux.tar.gz \
 && tar xf banxcoin-qt-linux.tar.gz \
