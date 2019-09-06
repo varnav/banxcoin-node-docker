@@ -16,12 +16,11 @@ RUN apt-get update \
 && apt-get -y --no-install-recommends install libdb4.8-dev libdb4.8++-dev \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* \
-&& wget "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-daemon-linux.tar.gz" -O banxcoin-daemon-linux.tar.gz \
-&& wget "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-qt-linux.tar.gz" -O banxcoin-qt-linux.tar.gz \
-&& tar -xzvf banxcoin-daemon-linux.tar.gz \
-&& tar -xzvf banxcoin-qt-linux.tar.gz \
+&& wget -q "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-daemon-linux.tar.gz" -O banxcoin-daemon-linux.tar.gz \
+&& wget -q "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-qt-linux.tar.gz" -O banxcoin-qt-linux.tar.gz \
+&& tar xf banxcoin-daemon-linux.tar.gz \
+&& tar xf banxcoin-qt-linux.tar.gz \
 && mv banxcoind banxcoin-cli banxcoin-tx /usr/bin/ \
-&& mv banxcoind /usr/bin/ \
 && useradd --shell /bin/bash bnbchaind \
 
 COPY ./bin/*.sh /usr/local/bin/

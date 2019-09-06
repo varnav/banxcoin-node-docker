@@ -11,7 +11,7 @@ install:
 script:
   - ${HADOLINT} --ignore DL3003 --ignore DL3008 Dockerfile
   - docker build . -t varnav/banxcoin-node
-  - docker run --rm -d --name banxcoin -evarnav/banxcoin-node
+  - docker run --rm -d --name banxcoin varnav/banxcoin-node
   - sleep 5
   - docker logs banxcoin | head -n 20
   - sleep 15
