@@ -13,7 +13,9 @@ RUN apt-get update \
 && apt-get install -y --no-install-recommends build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-test-dev libboost-thread-dev libboost-all-dev libboost-program-options-dev libminiupnpc-dev libzmq3-dev libprotobuf-dev protobuf-compiler unzip software-properties-common wget \
 && add-apt-repository ppa:bitcoin/bitcoin \
 && apt-get update \
-&& apt-get install libdb4.8-dev libdb4.8++-dev \
+&& apt-get -y --no-install-recommends install libdb4.8-dev libdb4.8++-dev \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/* \
 && wget "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-daemon-linux.tar.gz" -O banxcoin-daemon-linux.tar.gz \
 && wget "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-qt-linux.tar.gz" -O banxcoin-qt-linux.tar.gz \
 && tar -xzvf banxcoin-daemon-linux.tar.gz \
