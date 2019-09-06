@@ -26,4 +26,6 @@ RUN wget -q "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-daemon-
 
 COPY ./bin/*.sh /usr/local/bin/
 
+RUN chmod +x /usr/local/bin/*.sh
+
 ENTRYPOINT ["entrypoint.sh"]
