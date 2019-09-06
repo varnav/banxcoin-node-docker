@@ -22,10 +22,11 @@ RUN wget -q "https://github.com/Banxcoin-BXN/Wallets/raw/master/banxcoin-daemon-
 && tar xf banxcoin-daemon-linux.tar.gz \
 && tar xf banxcoin-qt-linux.tar.gz \
 && mv banxcoind banxcoin-cli banxcoin-tx /usr/bin/ \
-&& useradd --shell /bin/bash banxcoind
+&& useradd --shell /bin/bash --create-home banxcoind
 
 COPY ./bin/*.sh /usr/local/bin/
 
-RUN chmod +x /usr/local/bin/*.sh
+RUN chmod +x /usr/local/bin/*.sh \
+&& chown banxcoind 
 
 ENTRYPOINT ["entrypoint.sh"]
